@@ -369,7 +369,7 @@ GET https://www.okex.com/api/v1/future_mark_price.do?symbol=btc_usd&contract_typ
 # Response
 {
 “symbol”: "btc_usd",
-"contratct_type": "this_week",
+"contract_type": "this_week",
 "mark_price": "7100.35",
 "timstamp": "1440308760000"
 }
@@ -379,14 +379,14 @@ GET https://www.okex.com/api/v1/future_mark_price.do?symbol=btc_usd&contract_typ
 
 ```
 symbol：币种
-contratct_type：合约类型
+contract_type：合约类型
 mark_price：标记价格
 timestamp：系统时间戳
 ```
 |参数名| 参数类型| 必填| 描述|
 | :----- | :----- | :----- | :----- |
 |symbol|String|是|btc\_usd ltc\_usd eth\_usd etc\_usd bch\_usd|
-|contratct\_type|String|是|合约类型: this\_week:当周 next\_week:下周 quarter:季度|
+|contract\_type|String|是|合约类型: this\_week:当周 next\_week:下周 quarter:季度|
 
 
 ### 合约交易 API 
