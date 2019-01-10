@@ -360,6 +360,46 @@ Request Parameters
 |symbol|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
 |contract\_type|contract type: this\_week/next\_week/quarter (required)|
 
+10. GET /api/v1/future_mark_price   Get Mark Price
+
+URL `https://www.okex.com/api/v1/future_mark_price.do` Request frequency 20 times/2s
+
+Example	
+
+```
+# Request
+POST https://www.okex.com/api/v1/future_mark_price.do?symbol=btc_usd&contract_type=this_week
+# Response
+
+{
+“symbol”: "btc_usd",
+
+"contratct_type": "this_week",
+
+"mark_price": "7100.35",
+
+"timstamp": "1440308760000"
+
+}
+
+```
+
+Return Values	
+
+```
+symbol：btc_usd ltc_usd eth_usd etc_usd bch_usd 
+contratct_type：this_week next_week quarter
+mark_price：Mark Price
+timestamp：Timestamp
+```
+
+Request Parameters	
+
+| Parameter |	Type |	Required|	Description|
+| :-----    | :-----   | :-----    | :-----   |
+|symbol|String|Yes|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
+|contratct\_type|String|Yes| this\_week   next\_week   quarter |
+
 #### Contract Trade API 
 
 Contract Trading API for placing contract orders on OKEX
