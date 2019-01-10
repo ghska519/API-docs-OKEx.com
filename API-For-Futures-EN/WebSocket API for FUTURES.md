@@ -360,6 +360,36 @@ timestamp(string): timestamp
 Hint: This does not need to be subscribed and will be automatically returned 1 hour prior to delivery.
 
 ```
+8. ok_sub_futureusd_X_markprice_Y   mark price channel
+
+websocket.send("{'event':'addChannel','channel':'ok_sub_futureusd_X_markprice_Y'}");
+
+input parameters：
+① value of X：btc, ltc, eth, etc, bch,eos,xrp,btg
+② value of Y：this_week, next_week, quarter 
+
+response example：
+
+```
+[{
+ 
+“symbol”: "btc",
+ 
+"contract_type": "this_week",
+ 
+"mark_price": "7100.35",
+ 
+"timstamp": "1440308760000"
+ 
+}]
+```
+
+reponse value description:
+symbol：token
+contract_type：contract type
+mark_price：mark price
+timestamp：timestamp
+
 
 ### Contract Trade API 
 
