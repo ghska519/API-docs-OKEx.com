@@ -374,7 +374,7 @@ POST https://www.okex.com/api/v1/future_mark_price.do?symbol=btc_usd&contract_ty
 {
 “symbol”: "btc_usd",
 
-"contratct_type": "this_week",
+"contract_type": "this_week",
 
 "mark_price": "7100.35",
 
@@ -388,7 +388,7 @@ Return Values
 
 ```
 symbol：btc_usd ltc_usd eth_usd etc_usd bch_usd 
-contratct_type：this_week next_week quarter
+contract_type：this_week next_week quarter
 mark_price：Mark Price
 timestamp：Timestamp
 ```
@@ -398,7 +398,7 @@ Request Parameters
 | Parameter |	Type |	Required|	Description|
 | :-----    | :-----   | :-----    | :-----   |
 |symbol|String|Yes|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
-|contratct\_type|String|Yes| this\_week   next\_week   quarter |
+|contract\_type|String|Yes| this\_week   next\_week   quarter |
 
 #### Contract Trade API 
 
