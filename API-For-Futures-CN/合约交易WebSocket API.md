@@ -322,7 +322,7 @@ futureIndex(string): 指数
 timestamp(string): 时间戳
 ```
 
-7. X\_forecast\_price   合约预估交割价格
+7. X\_forecast\_price   订阅合约预估交割价格
 
 	
 ① X值为：btc, ltc, eth, etc, bch,eos,xrp,btg  
@@ -348,6 +348,37 @@ timestamp(string): 时间戳
 无需订阅，交割前一小时自动返回
 
 ```
+8. ok_sub_futureusd_X_markprice_Y   订阅标记价格
+
+websocket.send("{'event':'addChannel','channel':'ok_sub_futureusd_X_markprice_Y'}");
+
+输入值：
+① X值为：btc, ltc, eth, etc, bch,eos,xrp,btg
+② Y值为：this_week, next_week, quarter 
+
+返回示例：
+
+```
+[{
+ 
+“symbol”: "btc",
+ 
+"contract_type": "this_week",
+ 
+"mark_price": "7100.35",
+ 
+"timstamp": "1440308760000"
+ 
+}]
+```
+
+返回值说明:
+symbol：币种
+contract_type：合约类型
+mark_price：标记价格
+timestamp：系统时间戳
+
+
 
 ### 合约交易 API 
 
