@@ -357,6 +357,38 @@ low :最低卖价
 |symbol|String|是|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
 |contract\_type|String|是|合约类型: this\_week:当周   next\_week:下周   quarter:季度|
 
+10. GET /api/v1/future_mark_price 获取合约标记价格 
+
+URL `https://www.okex.com/api/v1/future_mark_price.do` 访问频率 20次/2秒
+
+示例
+
+```
+# Request
+GET https://www.okex.com/api/v1/future_mark_price.do?symbol=btc_usd&contract_type=this_week
+# Response
+{
+“symbol”: "btc_usd",
+"contratct_type": "this_week",
+"mark_price": "7100.35",
+"timstamp": "1440308760000"
+}
+```
+
+返回值说明
+
+```
+symbol：币种
+contratct_type：合约类型
+mark_price：标记价格
+timestamp：系统时间戳
+```
+|参数名| 参数类型| 必填| 描述|
+| :----- | :----- | :----- | :----- |
+|symbol|String|是|btc\_usd ltc\_usd eth\_usd etc\_usd bch\_usd|
+|contratct\_type|String|是|合约类型: this\_week:当周 next\_week:下周 quarter:季度|
+
+
 ### 合约交易 API 
 
 用于OKEX快速进行合约交易
