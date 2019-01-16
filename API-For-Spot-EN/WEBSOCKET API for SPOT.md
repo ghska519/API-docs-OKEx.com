@@ -375,11 +375,13 @@ Example
         "quote": "btc",
         "type": "order"
     }
-]```
+]
+
+```
 
 Returned Value Description	
 
-```
+
 free: available fund
 
 freezed: frozen fund
