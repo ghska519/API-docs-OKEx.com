@@ -381,11 +381,11 @@ Example
 
 Returned Value Description	
 
-
+```
 free: available fund
 
 freezed: frozen fund
-
+```
 Request Parameters	
 
 |Parameter Name|	Description|
