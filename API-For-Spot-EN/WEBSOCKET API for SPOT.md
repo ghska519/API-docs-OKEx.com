@@ -382,11 +382,11 @@ Returned Value Description
 ```
 free: available fund
 freezed: frozen fund
-```
 
 Request Parameters	
 
 |Parameter Name|	Description|
 | :-----   | :-----   |
 |symbol|ltc\_btc eth\_btc etc\_btc bch\_btc btc\_usdt eth\_usdt ltc\_usdt etc\_usdt bch\_usdt etc\_eth bt1\_btc bt2\_btc btg\_btc qtum\_btc hsr\_btc neo\_btc gas\_btc qtum\_usdt hsr\_usdt neo\_usdt gas\_usdt(Support all online currency pairs)|
+
 
