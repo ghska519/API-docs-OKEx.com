@@ -558,54 +558,42 @@ Request Parameters
 |match_price|match best counter party price (BBO)? 0: No    1: Yes   If yes, the 'price' field is ignored|
 |lever_rate|Leverage settings have to be adjusted on the trading page before creating an order. If you currently have 10x open order(s) or holding position(s), you cannot create a new 20x order.|
 
-4. POST /api/v1/future_trades_history    Get OKEX Contract Trade History (Not for Personal)
+4. POST /api/v1/future_devolve   Account Fund Transfer
 
-URL `https://www.okex.com/api/v1/future_trades_history` 
-Request frequency 1 times/30s
+URL `https://www.okex.com/api/v1/future_devolve.do`  	
+Request frequency 10 times/2s
 
 Example	
 
 ```
 # Request
-POST https://www.okex.com/api/v1/future_trades_history.do
+POST https://www.okex.com/api/v1/future_devolve.do
 # Response
-[
-    {
-        "amount": 11,
-        "date": 140807646000,
-        "price": 7.076,
-        "tid": 37,
-        "type": "buy"
-    },
-    {
-        "amount": 100,
-        "date": 1408076464000,
-        "price": 7.076,
-        "tid": 39,
-        "type": "sell"
-    }
-]
+{
+    "result":true
+}
+或
+{
+    "error_code":20029,
+    "result":false
+}
 ```
 
 Return Values	
 
 ```
-amount： quantity, in number of contracts
-date：transaction time(ms)
-price：transaction price
-tid：transaction ID
-type：buy/sell
+result: Transfer result. In case of error, returns the error code.
 ```
 
 Request Parameters	
 
-|Parameter|	Description|
-| :-----   | :-----   |
+|Parameter|		Description|
+| :-----     | :-----   |
 |api_key|apiKey of the user|
 |sign|signature of request parameters|
 |symbol|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
-|date|contract delivery date, format :yyyy-MM-dd|
-|since|the start of transaction id|
+|type|1: Spot to futures, 2: Futures to spot|
+|amount| Amount in coins|
 
 5. POST /api/v1/future\_batch_trade   Batch Trade
 
@@ -1061,44 +1049,6 @@ Request Parameters
 |current\_page|current page index|
 |page_number|current page number(current\_page is invalid when using page\_number，don't send current\_page )|
 |page_length|number of orders per page, maximum 50|
-
-12. POST /api/v1/future_devolve   Account Fund Transfer
-
-URL `https://www.okex.com/api/v1/future_devolve.do`  	
-Request frequency 10 times/2s
-
-Example	
-
-```
-# Request
-POST https://www.okex.com/api/v1/future_devolve.do
-# Response
-{
-    "result":true
-}
-或
-{
-    "error_code":20029,
-    "result":false
-}
-```
-
-Return Values	
-
-```
-result: Transfer result. In case of error, returns the error code.
-```
-
-Request Parameters	
-
-|Parameter|		Description|
-| :-----     | :-----   |
-|api_key|apiKey of the user|
-|sign|signature of request parameters|
-|symbol|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
-|type|1: Spot to futures, 2: Futures to spot|
-|amount| Amount in coins|
-
 
 
 

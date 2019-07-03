@@ -544,42 +544,30 @@ result ： true代表成功返回
 |match_price|String|否|是否为对手价 0:不是    1:是   ,当取值为1时,price无效|
 |lever_rate|String|否|杠杆倍数，下单时无需传送，系统取用户在页面上设置的杠杆倍数。且“开仓”若有10倍多单，就不能再下20倍多单|
 
-4. POST /api/v1/future_trades_history    获取OKEX合约交易历史（非个人）访问频率 
+4. POST /api/v1/future_devolve   个人账户资金划转
 
-URL `https://www.okex.com/api/v1/future_trades_history`   访问频率 1次/30秒
+URL `https://www.okex.com/api/v1/future_devolve.do`  	 访问频率 10次/2秒
 
 示例	
 
 ```
 # Request
-POST https://www.okex.com/api/v1/future_trades_history.do
+POST https://www.okex.com/api/v1/future_devolve.do
 # Response
-[
-    {
-        "amount": 11,
-        "date": 140807646000,
-        "price": 7.076,
-        "tid": 37,
-        "type": "buy"
-    },
-    {
-        "amount": 100,
-        "date": 1408076464000,
-        "price": 7.076,
-        "tid": 39,
-        "type": "sell"
-    }
-]
+{
+    "result":true
+}
+或
+{
+    "error_code":20029,
+    "result":false
+}
 ```
 
 返回值说明	
 
 ```
-amount：交易数量
-date：交易时间(毫秒)
-price：交易价格
-tid：交易ID
-type：交易类型（buy/sell）
+result:划转结果。若是划转失败，将给出错误码提示。
 ```
 
 请求参数	
@@ -589,8 +577,11 @@ type：交易类型（buy/sell）
 |api_key|String|是|用户申请的apiKey|
 |sign|String|是|请求参数的签名|
 |symbol|String|是|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
-|date|String|是|合约交割时间，格式yyyy-MM-dd|
-|since|Long|是|交易Id起始位置|
+|type|String|是|划转类型。1：币币转合约 2：合约转币币|
+|amount|String|是| 划转币的数量|
+
+
+
 
 5. POST /api/v1/future\_batch_trade   批量下单
 
@@ -1047,42 +1038,6 @@ type：交易类型 1：买入开多 2：卖出开空 3：卖出平多 4：买�
 |current\_page|Integer|否|当前页数索引值|
 |page_number|Integer|否|当前页数(使用page\_number时current\_page失效，current\_page无需传)|
 |page_length|Integer|否|每页获取条数，最多不超过50|
-
-12. POST /api/v1/future_devolve   个人账户资金划转
-
-URL `https://www.okex.com/api/v1/future_devolve.do`  	 访问频率 10次/2秒
-
-示例	
-
-```
-# Request
-POST https://www.okex.com/api/v1/future_devolve.do
-# Response
-{
-    "result":true
-}
-或
-{
-    "error_code":20029,
-    "result":false
-}
-```
-
-返回值说明	
-
-```
-result:划转结果。若是划转失败，将给出错误码提示。
-```
-
-请求参数	
-
-|参数名|	参数类型|	必填|	描述|
-| :-----    | :-----   | :-----    | :-----   |
-|api_key|String|是|用户申请的apiKey|
-|sign|String|是|请求参数的签名|
-|symbol|String|是|btc\_usd   ltc\_usd    eth\_usd    etc\_usd    bch\_usd|
-|type|String|是|划转类型。1：币币转合约 2：合约转币币|
-|amount|String|是| 划转币的数量|
 
 
 
